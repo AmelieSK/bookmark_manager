@@ -5,8 +5,9 @@ describe BookmarkManager, type: :feature do
   end
 
   it 'shows the bookmarks page' do
-    conn = PG.connect( dbname: 'bookmark_manager_test' )
-    conn.exec( "INSERT INTO bookmarks(url) VALUES('http://www.google.com'), ('http://www.destroyallsoftware.com'), ('http://www.makersacademy.com') ")
+    Bookmark.create('http://www.google.com')
+    Bookmark.create('http://www.destroyallsoftware.com')
+    Bookmark.create('http://www.makersacademy.com')
     visit('/')
     click_link('Bookmarks')
     expect(page).to have_content("http://www.google.com")
