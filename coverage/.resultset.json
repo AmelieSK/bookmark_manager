@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/student/projects/bookmark_manager/app.rb": {
+      "/Users/student/projects/bookmarks_amy_ellen/app.rb": {
         "lines": [
           null,
           1,
@@ -14,34 +14,59 @@
           null,
           null,
           1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
           1,
           1,
           null,
           null
         ]
       },
-      "/Users/student/projects/bookmark_manager/lib/bookmark.rb": {
+      "/Users/student/projects/bookmarks_amy_ellen/lib/bookmark.rb": {
         "lines": [
           1,
           null,
           1,
           null,
           1,
-          2,
-          2,
+          3,
+          3,
           null,
           0,
           null,
-          2,
-          2,
+          3,
+          3,
           6,
           null,
           null,
           null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          1,
+          null,
+          null,
           null
         ]
       },
-      "/Users/student/projects/bookmark_manager/spec/bookmark_spec.rb": {
+      "/Users/student/projects/bookmarks_amy_ellen/spec/bookmark_spec.rb": {
         "lines": [
           1,
           null,
@@ -55,7 +80,22 @@
           null
         ]
       },
-      "/Users/student/projects/bookmark_manager/spec/feature/view_bookmarks_spec.rb": {
+      "/Users/student/projects/bookmarks_amy_ellen/spec/feature/add_bookmark_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/student/projects/bookmarks_amy_ellen/spec/feature/view_bookmarks_spec.rb": {
         "lines": [
           1,
           1,
@@ -76,6 +116,6 @@
         ]
       }
     },
-    "timestamp": 1602095907
+    "timestamp": 1602101895
   }
 }
