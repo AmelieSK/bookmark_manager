@@ -7,4 +7,14 @@ describe Bookmark do
     bookmarks = Bookmark.all
     expect(bookmarks).to eq ['http://www.google.com', 'http://www.destroyallsoftware.com', 'http://www.makersacademy.com']
   end
+
+  describe 'create' do
+    it 'adds a new bookmark' do
+      bookmark=Bookmark.create(url: 'http://www.netflix.com', title: 'Netflix').first
+      p "URLLLL #{bookmark}"
+
+      expect(bookmark[:url]).to eq 'http://www.netflix.com'
+      expect(bookmark[:title]).to eq 'Netflix'
+    end
+  end
 end

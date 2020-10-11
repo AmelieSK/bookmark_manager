@@ -15,15 +15,16 @@ class Bookmark
     end
   end
 
-  def self.create(url)
+  def self.create(url:,title:)
     if ENV['ENVIRONMENT'] == 'test'
       conn = PG.connect( dbname: 'bookmark_manager_test' )
     else
       conn = PG.connect( dbname: 'bookmark_manager')
     end
 
+
     begin
-      conn.exec("INSERT INTO bookmarks(url) VALUES('#{url}')")
+      conn.exec("INSERT INTO bookmarks(url) VALUES('#{:url}')")
     rescue PG::Error => e
       puts e.message
     ensure
