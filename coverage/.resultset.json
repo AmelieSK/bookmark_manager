@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/student/projects/bookmarks_amy_ellen/app.rb": {
+      "/Users/student/projects/modern_webdev/bookmark_manager/app.rb": {
         "lines": [
           null,
           1,
@@ -29,7 +29,7 @@
           null
         ]
       },
-      "/Users/student/projects/bookmarks_amy_ellen/lib/bookmark.rb": {
+      "/Users/student/projects/modern_webdev/bookmark_manager/lib/bookmark.rb": {
         "lines": [
           1,
           null,
@@ -66,7 +66,7 @@
           null
         ]
       },
-      "/Users/student/projects/bookmarks_amy_ellen/spec/bookmark_spec.rb": {
+      "/Users/student/projects/modern_webdev/bookmark_manager/spec/bookmark_spec.rb": {
         "lines": [
           1,
           null,
@@ -80,7 +80,7 @@
           null
         ]
       },
-      "/Users/student/projects/bookmarks_amy_ellen/spec/feature/add_bookmark_spec.rb": {
+      "/Users/student/projects/modern_webdev/bookmark_manager/spec/feature/add_bookmark_spec.rb": {
         "lines": [
           1,
           1,
@@ -95,7 +95,7 @@
           null
         ]
       },
-      "/Users/student/projects/bookmarks_amy_ellen/spec/feature/view_bookmarks_spec.rb": {
+      "/Users/student/projects/modern_webdev/bookmark_manager/spec/feature/view_bookmarks_spec.rb": {
         "lines": [
           1,
           1,
@@ -117,6 +117,6 @@
         ]
       }
     },
-    "timestamp": 1602102291
+    "timestamp": 1602417425
   }
 }
