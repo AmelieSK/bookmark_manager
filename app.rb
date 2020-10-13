@@ -5,6 +5,8 @@ require 'pry'
 
 # class for managing bookmarks
 class BookmarkManager < Sinatra::Base
+  set(:method_override, true)
+
   get '/' do
     erb :index
   end
@@ -16,6 +18,11 @@ class BookmarkManager < Sinatra::Base
 
   post '/bookmarks' do
     Bookmark.create(url: params[:url], title: params[:title])
+    redirect '/bookmarks'
+  end
+
+  delete '/bookmarks' do
+    Bookmark.delete(id: params[:id])
     redirect '/bookmarks'
   end
 

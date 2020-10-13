@@ -7,8 +7,14 @@
   <body>
     <ul>
       <% @bookmarks.each do |bookmark| %>
-      <li> <a href=" <%=bookmark.url%> "> <%=bookmark.title%></a></li>
-      <%# <li> <%= <a href = 'bookmark.url'>bookmark.title</a> %>
+        <div>
+          <li> <a href=" <%=bookmark.url%> "> <%=bookmark.title%></a></li>
+          <form action="/bookmarks" method="POST">
+            <input type="hidden" name="id" value="<%=bookmark.id%>">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Delete">
+          </form>
+        </div>
       <% end %>
     </ul>
     <form action="/new-bookmark" method="GET">

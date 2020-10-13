@@ -32,17 +32,25 @@ attr_reader :url, :title, :id
     else
       conn = PG.connect( dbname: 'bookmark_manager')
     end
-    # conn.exec("INSERT INTO bookmarks(url, title) VALUES('#{url}', '#{title}'")
     conn.exec("INSERT INTO bookmarks(url, title) VALUES('#{url}', '#{title}')")
-    
-    # begin
-    #   conn.exec("INSERT INTO bookmarks(title, url) VALUES('#{title}', '#{url}')")
-    # rescue PG::Error => e
-    #   puts e.message
-    # ensure
-    #   conn.close
+    # all = conn.exec( "SELECT * FROM bookmarks" ) do |result|
+    #   result.map do |row|
+    #     url = row["url"] 
+    #     title = row["title"]
+    #     id = row["id"]
+    #     new(url, title, id)
+    #   end
     # end
+    # all.last
   end
 
+  def self.delete(id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      conn = PG.connect( dbname: 'bookmark_manager_test')
+    else
+      conn = PG.connect( dbname: 'bookmark_manager')
+    end
+    conn.exec("DELETE FROM bookmarks WHERE id='#{id}'")
+  end
 
 end
