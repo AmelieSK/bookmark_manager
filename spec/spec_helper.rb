@@ -1,6 +1,7 @@
 require 'simplecov'
 require 'simplecov-console'
 require 'test_database_manager'
+require 'process'
 
 ENV['ENVIRONMENT'] = 'test'
 

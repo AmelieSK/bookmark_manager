@@ -1,6 +1,7 @@
 # loading sinatra
 require 'sinatra'
 require './lib/bookmark'
+require 'pry'
 
 # class for managing bookmarks
 class BookmarkManager < Sinatra::Base

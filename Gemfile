@@ -12,3 +12,5 @@ gem 'simplecov-console', require: false, group: :test
 gem 'rubocop', '0.79.0'
 
 gem "pg", "~> 1.2"
+
+gem "pry", "~> 0.13.1"
