@@ -1,3 +1,4 @@
+require './lib/database_connection'
 require 'pg'
 require 'pry'
 
@@ -11,56 +12,25 @@ attr_reader :url, :title, :id
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      conn = PG.connect( dbname: 'bookmark_manager_test' )
-    else
-      conn = PG.connect( dbname: 'bookmark_manager')
-    end
-    conn.exec( "SELECT * FROM bookmarks" ) do |result|
-      result.map do |row|
-        url = row["url"] 
-        title = row["title"]
-        id = row["id"]
-        new(url, title, id)
-      end
+    result = DatabaseConnection.query( "SELECT * FROM bookmarks" )
+    result.map do |row|
+      url = row["url"] 
+      title = row["title"]
+      id = row["id"]
+      new(url, title, id)
     end
   end
 
   def self.create(url:, title:)
-    if ENV['ENVIRONMENT'] == 'test'
-      conn = PG.connect( dbname: 'bookmark_manager_test')
-    else
-      conn = PG.connect( dbname: 'bookmark_manager')
-    end
-    conn.exec("INSERT INTO bookmarks(url, title) VALUES('#{url}', '#{title}')")
-    # all = conn.exec( "SELECT * FROM bookmarks" ) do |result|
-    #   result.map do |row|
-    #     url = row["url"] 
-    #     title = row["title"]
-    #     id = row["id"]
-    #     new(url, title, id)
-    #   end
-    # end
-    # all.last
+    DatabaseConnection.query("INSERT INTO bookmarks(url, title) VALUES('#{url}', '#{title}')")
   end
 
   def self.delete(id:)
-    if ENV['ENVIRONMENT'] == 'test'
-      conn = PG.connect( dbname: 'bookmark_manager_test')
-    else
-      conn = PG.connect( dbname: 'bookmark_manager')
-    end
-    conn.exec("DELETE FROM bookmarks WHERE id='#{id}'")
+    DatabaseConnection.query("DELETE FROM bookmarks WHERE id='#{id}'")
   end
 
   def self.update(id:, url:, title:)
-    if ENV['ENVIRONMENT'] == 'test'
-      conn = PG.connect( dbname: 'bookmark_manager_test')
-    else
-      conn = PG.connect( dbname: 'bookmark_manager')
-    end
-    conn.exec(update_query(id, url, title))
-    # conn.exec("UPDATE bookmarks SET url='#{url}', title='#{title}' WHERE id='#{id}'")
+    DatabaseConnection.query(update_query(id, url, title))
   end
 
   private

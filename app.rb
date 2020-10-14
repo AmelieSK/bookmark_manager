@@ -1,11 +1,16 @@
-# loading sinatra
 require 'sinatra'
 require './lib/bookmark'
-require 'pry'
+require './lib/database_connection'
 
 # class for managing bookmarks
 class BookmarkManager < Sinatra::Base
   set(:method_override, true)
+
+  if ENV['ENVIRONMENT'] == 'test'
+    DatabaseConnection.setup('bookmark_manager_test')
+  else
+    DatabaseConnection.setup('bookmark_manager')
+  end
 
   get '/' do
     erb :index
