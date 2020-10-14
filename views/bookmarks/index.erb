@@ -14,11 +14,8 @@
             <input type="hidden" name="_method" value="delete">
             <input type="submit" value="Delete">
           </form>
-          <form action="/bookmarks" method="POST">
-            <input type="hidden" name="_method" value="PATCH"/>
-            <input type="text" name="url"/>
-            <input type="text" name="title"/>
-            <input type="submit" value="Update">
+          <form action="/bookmarks/<%=bookmark.id%>/edit" method="GET">
+            <input type="submit" value="Update"/>
           </form>
         </div>
       <% end %>

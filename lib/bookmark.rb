@@ -53,4 +53,26 @@ attr_reader :url, :title, :id
     conn.exec("DELETE FROM bookmarks WHERE id='#{id}'")
   end
 
+  def self.update(id:, url:, title:)
+    if ENV['ENVIRONMENT'] == 'test'
+      conn = PG.connect( dbname: 'bookmark_manager_test')
+    else
+      conn = PG.connect( dbname: 'bookmark_manager')
+    end
+    conn.exec(update_query(id, url, title))
+    # conn.exec("UPDATE bookmarks SET url='#{url}', title='#{title}' WHERE id='#{id}'")
+  end
+
+  private
+
+  def self.update_query(id, url, title)
+    if url.length == 0
+      "UPDATE bookmarks SET title='#{title}' WHERE id='#{id}'"
+    elsif title.length == 0
+      "UPDATE bookmarks SET url='#{url}' WHERE id='#{id}'"
+    else
+      "UPDATE bookmarks SET url='#{url}', title='#{title}' WHERE id='#{id}'"
+    end
+  end
+
 end
